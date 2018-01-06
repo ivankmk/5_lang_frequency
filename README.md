@@ -6,7 +6,7 @@ Script is analyzing the text file and revert the top of frequent words.
 
  - Python 3.5
  - Packages: re, os, sys, collections
- - text data file
+ - Text data file
 
 
 # How to launch
