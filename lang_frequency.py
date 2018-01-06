@@ -20,18 +20,16 @@ def get_most_frequent_words(text, top_lenght):
 
 if __name__ == '__main__':
     try:
-        data = load_data(sys.argv[1])
+        text_file = load_data(sys.argv[1])
     except (FileNotFoundError, IndexError):
         sys.exit('Please, use correct filepath.')
     except UnicodeError:
         sys.exit('Please, check your file encoding')
     try:
         top_lenght = int(input('How many most frequent words you need? '))
-        words = get_most_frequent_words(data, top_lenght)
-        print('That is your TOP {} list of words: '.format(top_lenght))
-        for word in words:
-            print('Word: {}, count of reiterative: {}'
-                  .format(word[0], word[1]))
+        print('That is TOP {} list of words - (word, count of repetition):'
+              .format(top_lenght))
+        print(get_most_frequent_words(text_file, top_lenght))
 
     except (TypeError, ValueError):
         sys.exit('Please, use only digits.')
