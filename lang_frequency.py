@@ -12,7 +12,6 @@ def load_data(file_path):
         return text
     except (FileNotFoundError, IndexError, UnicodeError):
         return None
-        # sys.exit('Please, use correct filepath.')
 
 
 def get_most_frequent_words(text, top_lenght):
