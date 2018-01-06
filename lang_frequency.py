@@ -6,10 +6,14 @@ from collections import Counter
 
 
 def load_data(file_path):
-    with open(file_path, 'r', encoding='cp1251') as file_reader:
-        text = file_reader.read()
-    return text
-
+    try:
+        with open(file_path, 'r', encoding='cp1251') as file_reader:
+            text = file_reader.read()
+        return text
+    except (FileNotFoundError, IndexError):
+        sys.exit('Please, use correct filepath.')
+    except UnicodeError:
+        sys.exit('Please, check your file encoding')
 
 def get_most_frequent_words(text, top_lenght):
     words = re.findall(r'\w+', text)
@@ -18,18 +22,17 @@ def get_most_frequent_words(text, top_lenght):
             ).most_common(top_lenght)
     return top_freq_words
 
+
+
 if __name__ == '__main__':
-    try:
-        text_file = load_data(sys.argv[1])
-    except (FileNotFoundError, IndexError):
-        sys.exit('Please, use correct filepath.')
-    except UnicodeError:
-        sys.exit('Please, check your file encoding')
+    text_file = load_data(sys.argv[1])
     try:
         top_lenght = int(input('How many most frequent words you need? '))
-        print('That is TOP {} list of words - (word, count of repetition):'
-              .format(top_lenght))
-        print(get_most_frequent_words(text_file, top_lenght))
-
+        words = get_most_frequent_words(text_file, top_lenght)
+        print('That is your TOP {} list of words: '.format(top_lenght))
     except (TypeError, ValueError):
         sys.exit('Please, use only digits.')
+
+    for word in words:
+        print('Word: {}, count of reiterative: {}'
+              .format(word[0], word[1]))
