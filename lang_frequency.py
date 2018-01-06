@@ -15,13 +15,13 @@ def load_data(file_path):
     except UnicodeError:
         sys.exit('Please, check your file encoding')
 
+
 def get_most_frequent_words(text, top_lenght):
     words = re.findall(r'\w+', text)
     top_freq_words = Counter(
             [word.lower().strip() for word in words]
             ).most_common(top_lenght)
     return top_freq_words
-
 
 
 if __name__ == '__main__':
