@@ -24,7 +24,7 @@ if __name__ == '__main__':
     except (FileNotFoundError, IndexError):
         sys.exit('Please, use correct filepath.')
     except UnicodeError:
-        sys.exit('Please, your file encoding')
+        sys.exit('Please, check your file encoding')
     try:
         top_lenght = int(input('How many most frequent words you need? '))
         words = get_most_frequent_words(data, top_lenght)
