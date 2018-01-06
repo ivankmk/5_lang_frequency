@@ -1,6 +1,28 @@
 # Frequency Analysis of Words
 
-[TODO. There will be project description]
+Script is analyzing the text file and revert the top of frequent words.
+
+# Requirements
+
+ - Python 3.5
+ - Packages: re, os, sys, collections
+ - text data file
+
+
+# How to launch
+
+```bash
+
+$ python lang_frequency.py <filepath> # possibly requires call of python3 executive instead of just python
+How many most frequent words you need? 3
+That is your TOP 33 list of words:
+Word: и, count of reiterative: 10649
+Word: в, count of reiterative: 5308
+Word: не, count of reiterative: 4404
+```
+
+The same with Windows environment;
+
 
 # Project Goals
 
