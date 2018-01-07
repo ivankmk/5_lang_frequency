@@ -5,7 +5,6 @@ Script is analyzing the text file and revert the Top-10 of frequent words.
 # Requirements
 
  - Python 3.5;
- - Packages: re, os, sys, collections;
  - Text data file with utf-8 encoding;
 
 
