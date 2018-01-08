@@ -16,9 +16,7 @@ def load_data(file_path):
 def get_most_frequent_words(text):
     words = re.findall(r'\b\w+\b', text)
     frequent_words = 10
-    top_freq_words = Counter(
-        [word for word in words]
-    ).most_common(frequent_words)
+    top_freq_words = Counter(words).most_common(frequent_words)
     return top_freq_words
 
 if __name__ == '__main__':
