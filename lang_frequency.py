@@ -7,7 +7,7 @@ from collections import Counter
 def load_data(file_path):
     try:
         with open(file_path, 'r', encoding="utf-8") as file_reader:
-            text = file_reader.read().lower()
+            text = file_reader.read()
         return text
     except (FileNotFoundError, UnicodeError):
         return None
@@ -17,10 +17,9 @@ def get_most_frequent_words(text):
     words = re.findall(r'\b\w+\b', text)
     frequent_words = 10
     top_freq_words = Counter(
-        [word.strip() for word in words]
+        [word for word in words]
     ).most_common(frequent_words)
-    return dict(top_freq_words)
-
+    return top_freq_words
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -31,6 +30,6 @@ if __name__ == '__main__':
             sys.exit('Please check your text file')
     words = get_most_frequent_words(text)
     print('That is your Top-10 list of words:\n')
-    for word, count in words.items():
+    for word, count in words:
         print('{}:  {}'.format(word, count))
     print('\n')
